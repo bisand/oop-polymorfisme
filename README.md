@@ -1,50 +1,101 @@
 # Objektorientert Programmering
 
-## Arv
+## Polymorfisme
 
-Arv (engelsk: Inheritance) er et grunnleggende prinsipp i objektorientert programmering (OOP) som muliggjør at en klasse kan arve egenskaper (som metoder og variabler) fra en annen klasse.
-Dette konseptet er sentralt for å skape en hierarkisk klassifisering av klasser, og det bidrar til kodegjenbruk og en mer organisert og forståelig struktur i programmer.
 
-### Praktisk eksempel på bruk av arv
-___
-`Eksempel: Person -> Student, Person -> Teacher `
-```python
-class Person:
-    def __init__(self, first_name: str, last_name: str, age: int, gender: str):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = age
-        self.gender = gender
 
-class Student(Person):
-    def __init__(self, first_name: str, last_name: str, age: int, gender: str, student_id: str, major: str):
-        super().__init__(first_name, last_name, age, gender)
-        self.student_id = student_id
-        self.major = major
+### Oppgave 1: Ad Hoc Polymorfisme med Funksjon Overlasting
 
-    def vis_info(self):
-        return f"Student: {self.first_name} {self.last_name}, Alder: {self.age}, Kjønn: {self.gender}, ID: {self.student_id}, Studieretning: {self.major}"
+Definer en klasse `Calculator` som implementerer en metode `add` for å legge sammen to tall. Utvid klassen slik at `add`-metoden kan ta imot to eller tre argumenter (overlasting). Skriv også testkode som viser hvordan `add`-metoden kan brukes med både to og tre argumenter.
+#### Beskrivelse
 
-class Teacher(Person):
-    def __init__(self, first_name: str, last_name: str, age: int, gender: str, employee_id: str, department: str):
-        super().__init__(first_name, last_name, age, gender)
-        self.employee_id = employee_id
-        self.department = department
+1. **Klasse `Calculator`**:
+   - `add`-metoden tar to eller tre argumenter. Hvis tre argumenter gis, returneres summen av alle tre, ellers returneres summen av de to første.
 
-    def vis_info(self):
-        return f"Lærer: {self.first_name} {self.last_name}, Alder: {self.age}, Kjønn: {self.gender}, ID: {self.employee_id}, Avdeling: {self.department}"
+2. **Testkoden**:
+   - Oppretter et `Calculator`-objekt.
+   - Demonstrerer bruk av `add`-metoden med to og tre argumenter.
 
-# Eksempel på bruk
-student = Student("Alice", "Larsen", 20, "Kvinne", "S12345", "Datavitenskap")
-teacher = Teacher("Bob", "Johansen", 45, "Mann", "T67890", "Matematikk")
 
-print(student.vis_info())
-print(teacher.vis_info())
 
-```
 
-### Oppgaver
+### Oppgave 2: Ad Hoc Polymorfisme med Operatør Overlasting
 
-Oppgaver nedenfor er ment for å gi deg en forståelse av hvordan klasser og objekter fungerer. Disse skal leveres innen neste forelesning. Arbeidskravet vil bestå av å få godkjent minst 2 av oppgavene. Det er ønskelig at dere leverer så mange som mulig, men det er ikke et krav.
+Definer en klasse `Product` som representerer et produkt i en butikk. Implementer metode for å overbelaste `+`-operatøren slik at to `Product`-objekter kan legges sammen for å få summen av prisene deres.
+#### Beskrivelse
 
-Klikk [her](oppgaver/oppgaver.md) for å se oppgaver ([PDF](oppgaver/oppgaver.pdf)).
+1. **Klasse `Product`**:
+   - `__init__`-metoden initialiserer et produkt med navn og pris.
+   - `__add__`-metoden overbelaster `+`-operatøren for å kunne legge sammen to `Product`-objekter. Den returnerer et nytt `Product`-objekt med kombinert navn og pris.
+   - `__str__`-metoden returnerer en strengrepresentasjon av produktet.
+
+2. **Testkoden**:
+   - Oppretter to `Product`-objekter.
+   - Bruker `+`-operatøren for å kombinere dem.
+   - Skriver ut det kombinerte produktet.
+
+
+
+### Oppgave 3: Universell Polymorfisme med Subtyping
+
+Definer en baseklasse `Shape` med en metode `area`. Deretter, definer to subklasser `Circle` og `Rectangle` som overstyrer `area`-metoden. Skriv en funksjon `print_area` som tar en `Shape`-instans som argument og skriver ut arealet.
+
+#### Beskrivelse
+
+1. **Klasse `Shape`**:
+   - `area`-metoden er en abstrakt metode som skal overstyres i subklassene.
+
+2. **Klasse `Circle`**:
+   - `__init__`-metoden initialiserer en sirkel med en radius.
+   - `area`-metoden returnerer arealet av sirkelen.
+
+3. **Klasse `Rectangle`**:
+   - `__init__`-metoden initialiserer et rektangel med bredde og høyde.
+   - `area`-metoden returnerer arealet av rektangelet.
+
+4. **Funksjon `print_area`**:
+   - Tar en `Shape`-instans som argument og skriver ut arealet ved å kalle `area`-metoden.
+
+5. **Testkoden**:
+   - Oppretter en `Circle`-instans og en `Rectangle`-instans.
+   - Bruker `print_area`-funksjonen til å skrive ut arealet av begge figurene.
+
+
+
+### Oppgave 4: Universell Polymorfisme med Parametrisk Polymorfisme
+
+Implementer en generisk funksjon `maximum` som kan ta inn en liste av elementer og returnere det største elementet. Test funksjonen med både en liste av tall og en liste av strenger.
+
+#### Beskrivelse
+
+1. **Funksjon `maximum`**:
+   - Tar en liste av elementer som argument.
+   - Returnerer `None` hvis listen er tom.
+   - Itererer gjennom listen og finner det største elementet ved å sammenligne hvert element med det nåværende maksimumselementet.
+
+2. **Testkoden**:
+   - Tester `maximum`-funksjonen med en liste av tall.
+   - Tester `maximum`-funksjonen med en liste av strenger.
+
+
+
+### Oppgave 5: Polymorfisme i Python med Duck Typing
+
+Lag en klasse `Dog` og en klasse `Cat`, begge med en metode `speak`. Skriv en funksjon `animal_sound` som tar et objekt som argument og kaller `speak`-metoden. Demonstrer duck typing ved å sende instanser av `Dog` og `Cat` til `animal_sound`-funksjonen.
+
+#### Beskrivelse
+
+1. **Klasse `Dog`**:
+   - `speak`-metoden returnerer "Woof!".
+
+2. **Klasse `Cat`**:
+   - `speak`-metoden returnerer "Meow!".
+
+3. **Funksjon `animal_sound`**:
+   - Tar et objekt som argument og kaller `speak`-metoden på dette objektet.
+   - Demonstrerer duck typing ved å bruke metoden uten å sjekke objektets klasse.
+
+4. **Testkoden**:
+   - Oppretter en `Dog`-instans og en `Cat`-instans.
+   - Bruker `animal_sound`-funksjonen til å skrive ut lyden fra begge dyrene.
+
