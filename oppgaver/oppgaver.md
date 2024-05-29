@@ -76,11 +76,11 @@ Implementer en generisk funksjon `maximum` som kan ta inn en liste av elementer 
    - Tester `maximum`-funksjonen med en liste av tall.
    - Tester `maximum`-funksjonen med en liste av strenger.
 
+___
+
 ### Oppgave 5: Polymorfisme i Python med Duck Typing
 
 Lag en klasse `Dog` og en klasse `Cat`, begge med en metode `speak`. Skriv en funksjon `animal_sound` som tar et objekt som argument og kaller `speak`-metoden. Demonstrer duck typing ved å sende instanser av `Dog` og `Cat` til `animal_sound`-funksjonen.
-
-___
 
 #### Beskrivelse
 
