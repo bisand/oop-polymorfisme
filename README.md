@@ -4,8 +4,8 @@
 
 Polymorfisme er et grunnleggende konsept i objektorientert programmering som refererer til evnen til en funksjon eller en metode til å behandle objekter av mange forskjellige klasser på en uniform måte. Ordet "polymorfisme" kommer fra gresk og betyr "mange former". Det finnes hovedsakelig to typer polymorfisme i programmering:
 
-- 1. ad hoc polymorfisme
-- 2. universell polymorfisme.
+- ad hoc polymorfisme
+- universell polymorfisme.
 
 ### Praktisk eksempel på bruk av polymorfisme
 
