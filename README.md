@@ -59,6 +59,18 @@ display_media_info(dvd)       # Output: Title: Inception, Director: Christopher 
 display_media_info(magazine)  # Output: Title: National Geographic, Issue Number: January 2024
 ```
 
+### Forklaring
+
+1. **`Media`-klassen**: Dette er en grunnleggende klasse som representerer et medium med et tittelattributt.
+
+2. **Underklassene (`Book`, `DVD`, `Magazine`)**: Disse klassene arver fra `Media` og legger til ytterligere attributter (f.eks. forfatter, regissør, utgivelsesnummer) og implementerer `display_info`-metoden for å vise informasjon om det spesifikke medietypen.
+
+3. **Generisk funksjon `display_media_info`**: Dette er en generisk funksjon som kan vise informasjon om ethvert medium, uavhengig av dets spesifikke type. Den kaller `display_info`-metoden på det gitte mediaobjektet.
+
+4. **Instanser av `Book`, `DVD`, `Magazine`**: Vi oppretter instanser av hver mediatype og viser informasjonen ved hjelp av den generiske funksjonen `display_media_info`.
+
+Dette eksempelet demonstrerer parametrisk polymorfisme gjennom generisk funksjon og inklusjonspolymorfisme gjennom arv og metodetilpasning (overriding) i underklassene. Klassen `Media` fungerer som en felles grensesnitt for alle mediatypene, og underklassene bruker denne felles grensesnittet mens de legger til sine egne unike egenskaper og metoder.
+
 ### Oppgaver
 
 Oppgaver nedenfor er ment for å gi deg en forståelse av hvordan klasser og objekter fungerer. Disse skal leveres innen neste forelesning. Arbeidskravet vil bestå av å få godkjent minst 2 av oppgavene. Det er ønskelig at dere leverer så mange som mulig, men det er ikke et krav.
