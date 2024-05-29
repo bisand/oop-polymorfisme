@@ -15,6 +15,8 @@ Definer en klasse `Calculator` som implementerer en metode `add` for å legge sa
    - Oppretter et `Calculator`-objekt.
    - Demonstrerer bruk av `add`-metoden med to og tre argumenter.
 
+___
+
 ### Oppgave 2: Ad Hoc Polymorfisme med Operatør Overlasting
 
 Definer en klasse `Product` som representerer et produkt i en butikk. Implementer metode for å overbelaste `+`-operatøren slik at to `Product`-objekter kan legges sammen for å få summen av prisene deres.
@@ -30,6 +32,8 @@ Definer en klasse `Product` som representerer et produkt i en butikk. Implemente
    - Oppretter to `Product`-objekter.
    - Bruker `+`-operatøren for å kombinere dem.
    - Skriver ut det kombinerte produktet.
+
+___
 
 ### Oppgave 3: Universell Polymorfisme med Subtyping
 
@@ -55,6 +59,8 @@ Definer en baseklasse `Shape` med en metode `area`. Deretter, definer to subklas
    - Oppretter en `Circle`-instans og en `Rectangle`-instans.
    - Bruker `print_area`-funksjonen til å skrive ut arealet av begge figurene.
 
+___
+
 ### Oppgave 4: Universell Polymorfisme med Parametrisk Polymorfisme
 
 Implementer en generisk funksjon `maximum` som kan ta inn en liste av elementer og returnere det største elementet. Test funksjonen med både en liste av tall og en liste av strenger.
@@ -73,6 +79,8 @@ Implementer en generisk funksjon `maximum` som kan ta inn en liste av elementer 
 ### Oppgave 5: Polymorfisme i Python med Duck Typing
 
 Lag en klasse `Dog` og en klasse `Cat`, begge med en metode `speak`. Skriv en funksjon `animal_sound` som tar et objekt som argument og kaller `speak`-metoden. Demonstrer duck typing ved å sende instanser av `Dog` og `Cat` til `animal_sound`-funksjonen.
+
+___
 
 #### Beskrivelse
 
