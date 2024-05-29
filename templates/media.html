@@ -30,14 +30,27 @@
 
 <body>
     <h1>Objektorientert programmering - Polymorfisme</h1>
-    <p>New media</p>
-    <form action="{{ url_for('new_media') }}" method="post">
-        <p><input type="text" name="title" placeholder="Title"></p>
-        <p><input type="text" name="author" placeholder="Author"></p>
-        <p><input type="text" name="director" placeholder="Director"></p>
-        <p><input type="text" name="issue_number" placeholder="Issue no"></p>
-        <p><input type="submit" value="New Media"></p>
-    </form>
+    <h2>"Media database"</h2>
+    <table>
+        <tbody>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Director</th>
+                <th>Issue Number</th>
+                <th>Media Type</th>
+            </tr>
+            {% for m in media %}
+            <tr>
+                <td>{{m.title}}</td>
+                <td>{{m.author}}</td>
+                <td>{{m.director}}</td>
+                <td>{{m.issue_number}}</td>
+                <td>{{m.type}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 
 </html>
