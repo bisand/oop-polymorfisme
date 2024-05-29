@@ -3,7 +3,7 @@ from flask import Flask, redirect, render_template, request
 from models.Car import Car
 from models.Vehicle import Vehicle
 
-app = Flask("test")
+app = Flask(__name__)
 
 
 @app.route("/")
